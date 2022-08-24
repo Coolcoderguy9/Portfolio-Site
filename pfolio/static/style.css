@@ -1,0 +1,22 @@
+body {
+	background-color: lightblue;
+}
+
+h1 {
+    text-align: center;
+    background-color: black;
+    color: lightgray;
+    font-family: Arial, Verdana, sans-serif;
+}
+
+figure {
+    float: left;
+    height: 150px;
+    width: 33.33%;
+    padding: 5px;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}

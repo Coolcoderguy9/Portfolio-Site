@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}" >
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" >
 <title>Portfolio</title>
 <head>
 <body>
 
 <h1>Collage of Works</h1>
+<div class="projects">
+<figure>
+    <img src='../static/fitness.jpg'/>
+    <figcaption>A mockup webpage for use in the context of a fitness based image. Supports registration and login functionality and stores salted passwords in a SQL database. Intended for users to purchase programs and fitness supplements, as well as communicate with company representatives. Built using Python and the Flask web framework, as well as HTML and CSS.</figcaption>
+</figure>
+<figure>
+    <img src='../static/game.jpg'/>
+    <figcaption>Simple text based RPG game made using C and the C standard library. Supports character creation, stat allocation, naming the character, and a rudimentary combat system.</figcaption>
+</figure>
+</div>
 </body>
 </html>
