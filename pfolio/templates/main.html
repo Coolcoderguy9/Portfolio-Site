@@ -2,10 +2,23 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" >
+{% block title %}
 <title>Portfolio</title>
+{% endblock %}
 <head>
 <body>
-
+    <script src ="{{ url_for('static', filename='jquery-3.6.1.js') }}"></script>
+<script>
+$(document).ready(function() {
+    $("#projects").fadeIn(3000);
+});
+</script>
+<div class="navbar">
+  <a class="active" href='{{ url_for("home")}}'>Home</a>
+  <a href='{{ url_for("contact")}}'>Contact</a>
+  <a href='{{ url_for("about")}}'>About</a>
+</div>
+{% block content %}
 <h1>Collage of Works</h1>
 <div class="projects">
 <figure>
@@ -17,5 +30,6 @@
     <figcaption>Simple text based RPG game made using C and the C standard library. Supports character creation, stat allocation, naming the character, and a rudimentary combat system.</figcaption>
 </figure>
 </div>
+{% endblock %}
 </body>
 </html>
