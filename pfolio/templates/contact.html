@@ -3,6 +3,9 @@
     <title>Contact</title>
 {% endblock %}
 {% block content %}
+	{% for message in get_flashed_messages() %}
+		<div class="alert"> {{ message }}</div>
+	{% endfor %}
     <h2>Contact Information</h2>
     <h3>Phone- 630-940-6060</h3>
     <h3>Email- harmanatwal7@gmail.com</h3>

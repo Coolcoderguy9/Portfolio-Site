@@ -34,3 +34,10 @@ img {
     text-decoration: none;
     font-size: 17px;
 }
+
+.alert {
+	padding: 20px;
+	margin: 5px;
+	color: #970020;
+	background-color: #ffd5de;
+}
