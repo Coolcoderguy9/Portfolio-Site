@@ -3,9 +3,8 @@
 from flask import Flask, render_template, url_for, request, flash, redirect
 import sqlite3
 
-connection = sqlite3.connect("contacts.db")
+connection = sqlite3.connect("contacts.db", check_same_thread=False)
 cursor = connection.cursor()
-cursor.execute("Create Table Connections (Name TEXT, Contact TEXT, Message TEXT)")
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'b1aa2872746a72528e6b7db9238b91922f8fd861f26d21cd'
@@ -29,7 +28,9 @@ def contact():
         elif not message:
             flash("Please leave a short message!")
         else:
-            cursor.execute("INSERT INTO Connections VALUES ('name', 'contact', 'message')")
+            cursor.execute("INSERT INTO Connections (name, contact, message) VALUES(?, ?, ?)", (name, contact, message))
+            connection.commit()
+
     return render_template('contact.html', fields = fields)
 
 @app.route("/about")

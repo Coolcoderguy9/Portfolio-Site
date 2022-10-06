@@ -1,4 +1,15 @@
 {% extends "main.html" %}
+{% block scripts %}
+    {{ super() }}
+    <script>
+        $(document).ready(function() {
+            $(".contact").fadeIn(1500);
+            $(".phone").fadeIn(2500);
+            $(".email").fadeIn(3500);
+            $(".form").fadeIn(4500);
+        });
+    </script>
+{% endblock %}
 {% block title %}
     <title>Contact</title>
 {% endblock %}
@@ -6,9 +17,9 @@
 	{% for message in get_flashed_messages() %}
 		<div class="alert"> {{ message }}</div>
 	{% endfor %}
-    <h2>Contact Information</h2>
-    <h3>Phone- 630-940-6060</h3>
-    <h3>Email- harmanatwal7@gmail.com</h3>
+    <h2 class="contact" style="display:none;">Contact Information</h2>
+    <h3 class="phone" style="display:none;">Phone- 630-940-6060</h3>
+    <h3 class="email" style="display:none;">Email- harmanatwal7@gmail.com</h3>
     <!--{% for field in fields %}
         <div class='field'>
             <h4>{{ field['Name'] }}</h4>
@@ -16,7 +27,8 @@
             <p>{{ field['Message'] }}</p>
         </div>
     {% endfor %}-->
-    <form method="post">
+    <div class="form" style="display:none;">
+        <form method="post">
         <label for="name">Name</label>
         <br>
         <input type="text" name="name"
@@ -40,5 +52,6 @@
                   >{{ request.form['content'] }}</textarea>
         <br>
         <button type="submit">Submit</button>
-    </form>
+        </form>
+    </div>
 {% endblock %}

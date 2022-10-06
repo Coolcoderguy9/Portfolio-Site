@@ -4,26 +4,28 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" >
     <script src ="{{ url_for('static', filename='jquery.js') }}">
 </script>
+{% block scripts %}
 <script>
-let i = 0;
-alert(i);
-$(function()) {
-    $("#projects").fadeIn("slow");
+$(document).ready(function() {
+    $(".navbar").fadeIn(1000);
+    $(".header").fadeIn(2000);
+    $(".projects").fadeIn(3000);
 });
 </script>
+{% endblock %}
 {% block title %}
 <title>Portfolio</title>
 {% endblock %}
 </head>
 <body>
-<div class="navbar">
+<div class="navbar" style="display:none;">
   <a class="active" href='{{ url_for("home")}}'>Home</a>
   <a href='{{ url_for("contact")}}'>Contact</a>
   <a href='{{ url_for("about")}}'>About</a>
 </div>
 {% block content %}
-<h1>Collage of Works</h1>
-<div class="projects">
+<h1 class="header" style="display:none;">Collage of Works</h1>
+<div class="projects" style="display:none;">
 <figure>
     <img src='../static/fitness.jpg'/>
     <figcaption>A mockup webpage for use in the context of a fitness based website. Supports registration and login functionality and stores salted passwords in a SQL database. Intended for users to purchase programs and fitness supplements, as well as communicate with company representatives. Built using Python and the Flask web framework, as well as HTML and CSS.</figcaption>
